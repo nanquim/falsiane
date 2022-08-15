@@ -31,7 +31,7 @@ for c in categorias:
         
         for n in noticias:
             titulo = n.find('div', attrs={'class': 'feed-post-body-title'})
-            categoria = n.find('span', attrs={'class': 'feed-post-metadata-section'})    
+            # categoria = n.find('span', attrs={'class': 'feed-post-metadata-section'})    
             resumo = n.find('div', attrs={'class': 'feed-post-body-resumo'})
             
             link = titulo.find('a')
@@ -55,10 +55,10 @@ for c in categorias:
             # data = n.find('span', attrs={'class': 'feed-post-datetime'})
             # dataset.append([titulo.text, categoria.text if categoria else 'Nenhum', resumo, data, 'Verdadeira'])
 
-            dataset.append([titulo.text, categoria.text if categoria else 'Nenhum', resumo, 'Verdadeira'])
+            dataset.append([titulo.text, c, resumo, 'Verdadeira'])
 
 print(f'\nTotal de registros salvos: {len(dataset)}')
 
 df = pd.DataFrame(dataset, columns=['Titulo', 'Categoria', 'Resumo', 'Status'])
 
-df.to_csv('verdadeiras.csv', index=False)
+df.to_csv('./datasets/verdadeiras.csv', index=False)

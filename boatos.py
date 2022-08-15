@@ -80,5 +80,5 @@ df = pd.DataFrame(dataset, columns=['Titulo', 'Categoria', 'Resumo', 'Data', 'St
 
 # print(df)
 
-df.to_csv('falsas.csv', index=False)
+df.to_csv('./datasets/falsas.csv', index=False)
 
