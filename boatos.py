@@ -27,8 +27,8 @@ for categoria in categorias:
         itens = soup.findAll('item')
 
         for item in itens:
-            link = item.find('link')
-            link = link.text
+            # link = item.find('link')
+            # link = link.text
             # print(link)
             r = s.get(f'{link}', headers=headers)
             artigo = BeautifulSoup(r.text, 'html.parser')
@@ -58,10 +58,10 @@ for categoria in categorias:
                             pass
                         else:
                             resumo = artigo.select('div.entry-content > div:nth-child(1) > p')
-                        if(resumo):
-                                pass
-                        else:
-                                print(link)
+                        # if(resumo):
+                        #         pass
+                        # else:
+                        #         print(link)
 
             
             resumo = resumo[0].text.replace('Boato – ', '')
